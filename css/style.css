@@ -1,0 +1,121 @@
+*{
+	margin: 0;
+	padding: 0;
+	outline: 0;
+}
+
+body{
+	background-color: rgba(44, 93, 104, .97);
+}
+
+.container{
+	max-width:700px;
+	margin :0 auto;/*不设高度也是能margin 0auto的*/
+	/*background-color: rgba(0,0,0,.1);*/
+	position: relative;
+	padding: 0 10px;
+}
+
+h1{
+	text-align: center;
+	font-size: 2.5em;
+	font-family: Georgia, Times, Serif;
+	color: #fff;
+	padding: 20px;
+	/*word-spacing: .25em;字符间距*/
+}
+
+input[type=text]{
+	width:85%;
+	padding: 10px;
+	border-radius: 3px;
+	border: 0;
+	float: left;
+	background-color: #ddd;
+}
+
+button{
+	padding: 10px 15px;
+	background-color :#dc9090;
+	border: 0;
+	border-radius: 3px;
+	margin-left: 1%;
+	cursor: pointer;
+}
+
+.addTask{
+	position: relative;
+	margin-bottom: 10px;
+}
+
+.taskItem{
+	position: relative;
+	width: 97%;
+	background-color: #fff;
+	color: #333;
+	padding:10px;
+	margin-bottom: 2px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.taskItem:hover{
+	background-color: #ddd;
+}
+
+.fl{
+	float: left;
+}
+
+.fr{
+	float: right;
+}
+
+.delete:hover{
+	color:#000;
+}
+
+.mask{
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, .5);
+	display: none;
+}
+
+.box{
+	position: fixed;
+	width: 300px;
+	border-radius: 5px;
+	background-color: #fff;
+	padding: 15px 10px;
+	display:none;
+}
+
+.boxTitle{
+	font-size:1.25em;
+	text-align:center;
+	vertical-align: middle;
+	width:200px;
+	height:30px;
+	margin: 0 auto;
+	border-radius: 5px;
+}
+
+.boxBtn{
+	text-align: center;
+	vertical-align: middle;
+	margin-top:10px;
+
+}
+
+.taskInfo{
+	position: fixed;
+	width: 230px;
+	height: 220px;
+	background-color: #ddd;
+	display: none;
+	border-radius: 3px;
+}

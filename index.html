@@ -1,0 +1,43 @@
+<!DOCTYPE HTML><!-- 以标准模式解析html -->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Todo App</title>
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="wrapper">
+				<h1>My Todo</h1>
+				<form class="addTask">
+					<input type="text" autofocus placeholder="e.g.明天早上6点爬山"/>
+					<!-- button与input[type==submit]的区别是，button的值是写在标签开始和结束之间，input是写在attribute的value里。其次，button放的内容可以是文字或者图片。 -->
+					<button>submit</button>
+				</form>
+				<div class="taskList">
+					
+				</div>
+				<div class="taskInfo">
+					doing
+				</div>
+			</div>
+			<div class="mask">
+
+			</div>
+			<div class="box">
+				<div class="boxTitle">
+					确定删除？
+				</div>
+				<div class="boxBtn">
+					<button id="sure">确定</button>
+					<button id="not">取消</button>
+				</div>
+			</div>
+		</div>
+		<script src="js/jquery-3.3.1.min.js"></script>
+		<script src="node_modules/store/store.js"></script>
+		<script src="js/main.js"></script>
+		<!-- 注意js文件的加载顺序 -->
+	</body>
+</html>
