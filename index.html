@@ -9,7 +9,7 @@
 	<body>
 		<div class="container">
 			<div class="wrapper">
-				<h1>My Todo</h1>
+				<h1>My Todo List</h1>
 				<form class="addTask">
 					<input type="text" autofocus placeholder="e.g.明天早上6点爬山"/>
 					<!-- button与input[type==submit]的区别是，button的值是写在标签开始和结束之间，input是写在attribute的value里。其次，button放的内容可以是文字或者图片。 -->
@@ -19,7 +19,15 @@
 					
 				</div>
 				<div class="taskInfo">
-					doing
+					<div class="content">
+						<p></p>
+						<textarea></textarea>
+					</div>
+					<div class="remind">
+						<p>提醒时间</p>
+						<input type="date" />
+						<button id="refresh">更新</button>
+					</div>
 				</div>
 			</div>
 			<div class="mask">

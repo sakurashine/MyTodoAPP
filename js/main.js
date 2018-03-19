@@ -12,7 +12,6 @@
 	$addTask.on('submit',function(e){
 		e.preventDefault();
 		addTask();
-		
 	});
 
 	// var $deleteBtn = $('.fr.delete');
@@ -29,7 +28,7 @@
 		var $top = $('#item' + itemNum).offset().top;
 		var $left = $('#item' + itemNum).offset().left;
 		var $width = $('#item' + itemNum).width();
-		showTaskInfo($top, $left, $width);
+		showTaskInfo($top, $left, $width, itemNum);
 	});
 
 	var $sure = $('#sure');
@@ -53,16 +52,15 @@
 	function addTask(){
 		var newTask = {}
 		newTask.content = $('input[type=text]').val();
-		newTask.desc = newTask.content + '的详情';
 		taskList.push(newTask);
 		store.set('taskList', taskList);
-		console.log(store.get('taskList'));
+		// console.log(store.get('taskList'));
 		renderTaskList();
 	}
 
 	function getTaskItem(data, i){
 		var taskItem = '<div class="taskItem" id="item' + i + '">' +
-					'<input type="radio" />' +
+					'<input type="checkbox" />' +
 					'<span>' + data.content + '</span>' +
 					'<span class="fr desc">详情</span>' +
 					'<span class="fr delete">删除</span>' +
@@ -116,7 +114,7 @@
 		
 	}
 
-	function showTaskInfo($top,$left,$width){
+	function showTaskInfo($top,$left,$width,itemNum){
 		if($top < 250){
 			$('.taskInfo').css({
 				top: $top + 41,
@@ -130,6 +128,14 @@
 				display: "block"
 			});
 		}
+		$('.taskInfo .content p').html(taskList[itemNum].content);
+		$('.taskInfo .content p').attr("id",itemNum);
+		$('.taskInfo .content textarea').val(taskList[itemNum].desc);
+		//注意，给textarea赋值，用html是无效的
+	}
+
+	function hideTaskInfo(){
+		$('.taskInfo').css("display","none");
 	}
 
 	function adjustTaskInfo(){
@@ -141,11 +147,29 @@
 	}
 
 	//点击空白区域隐藏任务详情
-	$(document).mouseup(function(e){
-	  var _con = $('.taskInfo');   // 设置目标区域
-	  if(!_con.is(e.target) && _con.has(e.target).length === 0){
-	    $('.taskInfo').css("display","none");
-  }
+	$(document).mousedown(function(e){
+	    var _con = $('.taskInfo');   // 设置目标区域
+	    if(!_con.is(e.target) && _con.has(e.target).length === 0){
+	        $('.taskInfo').css("display","none");
+    }
+
+    $refresh = $('#refresh');
+    //累加绑定
+    //每点击一次$refresh绑定一次click事件
+    //第n次点击该button会触发n次click事件
+    //这显然不合理
+    //在on事件前加off('click')，每次绑定事件之前清除已有绑定的事件
+    $refresh.off('click').on('click',function(e){
+    	e.stopPropagation();
+    	e.preventDefault();
+    	var newDesc = $('.taskInfo .content textarea').val();
+    	var num = $('.content p').attr('id');
+    	taskList[num].desc = newDesc;
+    	store.set('taskList', taskList);
+    	renderTaskList();
+    	hideTaskInfo();
+    });
+
 });
 
 })()

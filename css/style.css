@@ -114,8 +114,59 @@ button{
 .taskInfo{
 	position: fixed;
 	width: 230px;
-	height: 220px;
-	background-color: #ddd;
+	height: 235px;
+	background-color: #fff;
 	display: none;
 	border-radius: 3px;
+}
+
+.taskInfo p{
+	padding:5px 15px;
+	font-weight: bold;
+}
+
+.taskInfo .content textarea{
+	resize: none;
+	width: 190px;
+	height: 70px;
+	padding: 10px;
+	font-family: Georgia, Times, Serif;
+	font-size: 1em;
+	border: 0;
+	margin: 0 10px;
+	border-radius: 3px;
+	background-color: #ccc;
+}
+
+.taskInfo .content textarea:hover, .remind input[type=text]:hover{
+	background-color: #ddd;
+}
+
+.remind input[type=date]{
+	border: 0;
+	width:210px;
+	height:30px;
+	box-shadow: 0 0 2px #bbb inset;
+	margin: 0 10px;
+	border-radius: 3px;
+	background-color: #ccc;
+	text-align: center;
+}
+
+.remind button{
+	margin: 5px 10px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    background-color: #ccc;
+    
+}
+
+input[type="date"]::-webkit-clear-button{
+   display:none;
+}
+
+input[type="date"]::-webkit-inner-spin-button { 
+	/*visibility: hidden; */
+	display: none;
 }
