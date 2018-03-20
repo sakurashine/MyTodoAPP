@@ -52,6 +52,7 @@
 	function addTask(){
 		var newTask = {}
 		newTask.content = $('input[type=text]').val();
+		console.log(taskList);
 		taskList.push(newTask);
 		store.set('taskList', taskList);
 		// console.log(store.get('taskList'));
@@ -105,7 +106,7 @@
 
 	function init(){
 		//全局
-		taskList = store.get('taskList');
+		taskList = store.get('taskList') || [];
 		if(taskList){
 			renderTaskList();
 		}else{
